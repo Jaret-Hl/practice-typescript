@@ -72,3 +72,31 @@ const updatedArray = insertAtBeginning(demoArray, -1);
 const stringArray = insertAtBeginning(['a', 'b', 'c'], 'd');
 
 // updatedArray[0].split(''); // Error: Property 'split' does not exist on type 'number'
+
+class Student {
+    firstName: string;
+    lastName: string;
+    age: number;
+    private courses: string[];
+
+    constructor(first: string, last: string, age: number, courses: string[]) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.courses = courses;
+    }
+
+    enrol(courseName: string){
+        this.courses.push(courseName);
+    }
+
+    listCourses(){
+        return this.courses.slice();
+    }
+}
+
+const student = new Student('Jaret', 'Smith', 26, ['Angular']);
+student.enrol('React');
+// student.listCourses(); // Returns a copy of the courses array => Angular, React
+
+// student.courses => Angular, React // This example returns a string array
